@@ -5,10 +5,6 @@
     <h1> Image</h1>
 </span>
 <hr>
-
-
-
-
     {% for image in images %}
     <a href="{% url 'images_detail' image.id %}">
         {% load static %}
