@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="boardpage">
+
+  
+
+
+<!-- board / board user information  -->
+<div id="boardname">
+    <h1>{{board.title }}</h1>
+    <p>Created by <a href="{% url 'profile_viewer' user.id %}"> {{board.user}} </a> on {{board.date}} </p>
+</div> 
+
+<div class="board-information">
+    {% if board.user == request.user %}
+    <a style="color:white ;" href="{% url 'board_update' board.id %}"> <button class="boarduser-functions" style="background-color:rgb(198, 194, 195)">Edit</button></a>
+    <a style="color:white ;"  href="{% url 'board_delete' board.id %}"><button class="boarduser-functions" style="background-color:rgb(238, 17, 61)">  Delete</button></a>
+     {% endif %}
+
+
+
+  <!-- Add New Image -->
+  {% if board.user == request.user %}
+    <button class="boarduser-functions" id='pin-images' style="background-color: #8bc34ab0;" >Upload Image</button>
+    <div class="boardform-overlay">
+        <div id="board-add-image">
+            <form  id='boardform' method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                {{ image_form.as_table }}
+                </table>
+                <input type="submit" value="Add Image" class="btn">
+            <button id= "cancel" class="btn" >cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+
+ <!-- Images Available to Add  -->
+  
+   <button class="open  boarduser-functions" style="background-color:rgb(14, 182, 182);">Available Images</button>
+       <div class="popup-overlay"> 
+               <div class="popup-content"> 
+                    <div class='board-container'>
+                       {% if image.count %}
+       
+                       {% for image in image.all %}
+                       <div class='available-section'>
+                    
+                         <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
+                        
+                       <div class="unassoc-image">
+                               <form action="{% url 'assoc_image' board.id image.id %}" method="post">
+                                   {% csrf_token %}
+                                   <button id= "add-image" type="submit" >+</button>
+                               </form>
+   
+                       </div>
+   
+                    </div>
+                       {% endfor %}
+                       {% endif %}
+                       
+                   </div>
+                   <button class="close">Close</button>
+                </div>
+       </div> 
+    {% endif %} 
+</div>
+
+<!-- board images  -->
+<div class='board-container' id="board-display">
+
+        {% if board.images.count %}
+        {% for image in board.images.all %}
+    
+    <div class='board-section'>
+
+        <img class="img" id="board-images" src='/media/{{image.img}}'/>
+        
+            
+        <div class="unassoc-image">
+            <form action="{% url 'unassoc_image' board.id image.id %}" method="post">
+                 {% csrf_token %}
+                {% if board.user == request.user %}
+                <button id= "remove-image" type="submit" >X</button>
+            </form>
+                {% endif %}
+        </div>
+    </div>
+        {% endfor %}
+        {% else%}
+       <!-- need to consider the message here -->
+        <!-- <p id="empty-board">Create your Mood</p> -->
+        
+        {% endif %}
+
+ </div>
+
+
+</section>
+
+
+
+ 
+<!--JS CODE -->
+
+<script>
+$('.open').on("click", function() {
+$(".popup-overlay, .popup-content").addClass('active');
+});
+
+//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
+$(".close, .popup-overlay").on("click", function() {
+$(".popup-overlay, .popup-content").removeClass('active');
+});
+
+$('#pin-images').on("click", function() {
+console.log('clicked')
+$("#board-add-image, .boardform-overlay ").addClass('active');
+});
+
+$('#cancel').on("click", function() {
+console.log('clicked')
+$("#board-add-image, .boardform-overlay").removeClass('active');
+});
+
+$('main').attr('class', 'boarddetail');
+
+</script>
+
+{% endblock %}

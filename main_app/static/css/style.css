@@ -1,0 +1,654 @@
+/* || GLOBAL STYLES */
+
+* {
+     text-align: center; 
+
+}
+
+
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer {
+    padding-top: 0px;
+    text-align: right;
+}
+
+.btn {
+    background-color: #8bc34a;
+}
+
+/* ---------- */
+
+
+.brand-logo{
+    left: 23px
+}
+
+.boarddetail {
+    width:80%;
+    margin: auto;
+}
+
+#boardname{
+    margin-top: 100px;
+    color: #8bc34a;
+   
+}
+
+#board-display{
+    margin-top: 10px;
+    width: 95%;
+}
+ .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: left;
+    padding: 10px 10px;
+    margin: 25%;
+    z-index: 1;
+ }
+
+.grid-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* the div that wrap around all the images  */
+.board-container {
+    columns: 6;
+    column-gap: 2px;
+   
+}
+
+#board-container-about {
+    margin-top:5px;
+    columns: 3;
+    column-gap: 2px;
+    overflow: hidden;
+   
+}
+
+/* holds each image  */
+ .board-section {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    border-radius: 5%;
+    
+}  
+
+.available-section {
+    width: 100%;
+    position: relative;
+    border-radius: 5%;
+    
+    
+}  
+
+/* The button for unassociating an image  */
+.unassoc-image {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  } 
+
+
+.board-container .board-section  #board-images {
+    width: 100%; 
+    padding:5px;
+    border-radius: 5%;
+
+}
+
+#board-container-about .board-section  #about-images {
+    width: 100%; 
+    padding:5px;
+    border-radius: 5%;
+
+}
+#board-images-add{
+    margin: 10px;
+    border-radius: 5%;
+}
+
+/* maka sure when the image is hoverd over the button to unassociate image diplays  */
+#board-images:hover + .unassoc-image {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }  
+
+ #board-images-add:hover + .unassoc-image {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }  
+
+/* make sure the button stays when you hoover over that section  */
+.unassoc-image:hover {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px; 
+}
+
+
+.boarduser-functions{
+    margin: 20px 5px;
+    border-radius: 5px;
+    font: 5px;
+    width: 200px;
+    height: 50px;
+    color:white;  
+    border: none;
+}
+
+.popup-overlay {
+   display:none;
+ }
+    
+.popup-content {
+    visibility:hidden;
+}
+.popup-overlay.active{
+    position:relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(237, 229, 229); 
+    justify-content: left;
+    padding: 10px 10px;
+    margin: 0px;
+    background-size: contain;
+    z-index: 1;
+ }   
+
+.popup-content.active {
+        visibility:visible;
+ }
+
+ #board-add-image {
+    display: none;
+ }
+
+
+ .boardform-overlay{
+    display: none;
+ }
+
+ .boardform-overlay.active{
+    display: block;
+    width: 50%;
+    color: black;
+    background-color: rgb(237, 229, 229);
+    position: absolute;
+    margin: 0 auto;
+    top: 25%;
+    left: 5%;
+    right: 5%;
+    border-radius: 15px;
+    z-index: 1;
+ }  
+
+ #board-add-image.active {
+    margin: 20px;
+    padding: 20px;
+    display: block;
+    background-color: white;
+ }
+
+
+#remove-image {
+    border-radius: 30%;
+    background-color: rgb(238, 17, 61);
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    text-align: center;
+    color: white;
+}
+
+#add-image {
+    border-radius: 30%;
+    background-color: teal;
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+    text-align: center;
+    color: white;
+}
+
+.aboutcontainer {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.aboutcontent {
+    width: 50%;
+    float: left;
+    font-size: large;
+    padding: 15px
+   
+}  
+
+
+
+body {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+.dark-mode {
+    background-color: rgb(68, 68, 68);
+    color: white;
+  }
+
+  .button {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+  
+    border: none;
+  }
+
+.detail-img {
+    
+    display: flex;
+    width: 80%;
+    height:400px;
+    margin: auto;
+    width: 50%;
+    top: 30px;
+
+    align-items: center;
+
+  }
+ .image_detail {
+    display: flex;
+    
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+    float: right;
+    padding-left: 140px; 
+    object-fit: cover;
+
+ }
+
+footer.page-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+}
+.delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 13px;
+    width: 100px;
+    height: 37px;
+    position:absolute;
+    bottom: 22px;
+    padding: 25px;
+
+}
+
+
+
+.box img {
+    width: 320px;
+    height: 200px;
+}
+
+
+/* || USER PROFILE STYLES */
+
+/* -- Profile READ and UPDATE: */
+
+.p-container {
+    box-shadow: 2px 5px 5px darkgray;
+}
+
+.p-container-sm {
+    box-shadow: 2px 4px 10px darkgray;
+}
+
+.profile-greentext {
+    color: #8bc34a;
+}
+
+.profile-pic-container {
+    padding: 10px;
+    background-color: rgb(250, 250, 250);
+
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    
+    border: none;
+    border-radius: 15px;
+}
+
+.profile-pic {
+    max-height: 200px;
+    max-width: 200px;
+    border: none;
+    border-radius: 15px;
+}
+
+#profile-bio-container {
+    width: auto;
+    min-height: 4em;
+    margin: 0% 20%;
+    padding: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    font-style: italic;
+    font-size: 14pt;
+}
+
+.profile-form {
+    border: 0px none;
+    border-radius: 10px;
+}
+
+#profile-form-container {
+    width: 50%;
+    color: black;
+    background-color: #8bc34ab0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border-radius: 15px;
+
+}
+
+#profile-form-inner {
+    margin: 20px;
+    padding: 20px;
+
+    background-color: rgb(250, 250, 250);
+}
+
+/* -- Hero Boards w/i User Profile Page: */
+
+.p-hero-outer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 20vh;
+    min-width: 900px;
+}
+
+.p-hero-row {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(250, 250, 250);
+    min-height: 20%;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: none;
+    border-radius: 15px;
+    margin: 0.5% 0%;
+}
+
+.p-hero-card {
+    display: flex;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 1%;
+    width: 18%;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-hero-image {
+    background-color: darkgrey;
+    height: 160px;
+    width: 140px;
+}
+
+.p-hero-title {
+    width: 100%;
+    color: black;
+}
+
+
+.boxed {
+  
+    background-color: #9fda5a;
+    padding: 30px;
+    position:relative;
+    top: 130px;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    height: 600px;
+}
+.bob {
+    background-color: rgb(140, 217, 95);
+    width: 100px;
+    color: #ffffff;
+}
+.top {
+    
+    background-size: contain;
+    width: 100%;
+}
+.form {
+    position:absolute;
+    right: 30px;
+    top: 160px;
+    background-color: white;
+    padding:20px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+
+
+
+
+.detail-img {
+    background-color: #9fda5a;
+}
+.top {
+    background-size: contain;
+    width: 100%;
+}
+
+.detail-img {
+    background-color: #9FDA5A;
+
+    padding: 30px;
+    position:relative;
+    top: 60px;
+    border-radius: 40px;
+    color: white;
+    height: 600px;
+    width: 100%;
+
+  }
+.image_detail {
+    position: absolute;
+
+    width: 38%;
+    right: 25%;
+    object-fit: cover;
+  
+ }
+
+
+
+
+ .photo_editdelete {
+   position:absolute;
+   right: 40px;
+   bottom:40px;
+
+ 
+}
+.info {
+    display:flex ;
+    align-items: center;
+    
+    position: absolute;
+    background-color: #ffffff;
+
+   }
+  .image_detail {
+    position: absolute;
+    width: 38%;
+    right: 25%;
+    object-fit: cover;
+   }
+   .photo_editdelete {
+    position:absolute;
+    right: 40px;
+    bottom:40px;
+  }
+  .info {
+    display:flex ;
+    align-items: center;
+    position: absolute;
+    background-color: #FFFFFF;
+
+    width: 95%;
+    height: 90%;
+    color:#8bc34a;
+    border-radius: 20px;
+    padding: 25px;
+    background-size: auto;
+
+}
+.image_full{
+    border-radius: 20px;
+}
+.title {
+    color: rgb(80, 154, 110);
+}
+.info1{
+    position:absolute;
+    float:left;
+    width: 40%;
+
+}
+.container:hover .image {
+    opacity: 0.3;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .form {
+    position:absolute;
+    right: 30px;
+    top: 160px;
+    background-color: white;
+    padding:20px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+.bob {
+    background-color: rgb(140, 217, 95);
+    width: 100px;
+    color: #ffffff;
+}
+.boxed {
+  
+    background-color: #9fda5a;
+    padding: 30px;
+    position:relative;
+    top: 130px;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    height: 600px;
+}
+.delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 13px;
+    width: 100px;
+    height: 37px;
+    position:absolute;
+    bottom: 22px;
+    padding: 25px;
+
+}
+
+  .image_full{
+    border-radius: 20px;
+  }
+  .info1{
+    position:absolute;
+    float:left;
+    width: 40%;
+  }
+
+ #pic {
+    padding: 1px;
+    background-size: cover;
+    height: 370px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 40px;
+}
+#pic:hover {
+    filter: brightness(80%);
+  }
+
+.logo {
+    position:absolute;
+    width: 4%;
+    top: 0px;
+    left: 9%;
+}
+.hover {
+    background-image: none;
+}
+.hover:hover {
+    background-image: url(" https://ibb.co/8gYvB8S");
+    z-index: 1;
+}
+.logoform {
+    position:absolute;
+    width: 2%;
+    top: 0px;
+    left: 7%;
+}
+
+.logoformupload {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+}

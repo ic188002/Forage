@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+
+<div class="profile-form" id="profile-form-container" style="font-size: 16pt;">
+ <div class="profile-form" id="profile-form-inner">
+{% if object %}
+ <h1>Edit <span class='teal-text'> {{object.title}}</span></h1>
+{%else%}
+ <h1>Create Your Board</h1>
+{% endif %}
+   
+
+<form class="board-form" action=""  method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+
+        {{ form.as_table }}
+        </table>
+
+        {% if object %}
+        <input type="submit" value="Update Board" class="btn">
+       {%else%}
+       <input type="submit" value="Create Board" class="btn">
+       {% endif %}
+</form>
+</div>
+</div>
+{% endblock %}
+
+<script>
+$('form').attr('id', 'createform')    
+</script>
+
+
+
+
