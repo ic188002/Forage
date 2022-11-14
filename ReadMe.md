@@ -73,7 +73,7 @@ Planning</h3>
 In our first meeting we broke down the project requirements and what we and a group would like to accomplish within our time frame, it was here that I pitched the idea of building a image sharing application and after we all agreed we create our first ERD as seen below, this highlight the relationships that we need to build into the applications, were one user can create an account, add information such as phone number, email address, password, profile image and then add images that are added to the image database for all other users to access. By using an ERD we could refer to all aspects of the database and easily pull the information. 
 We also mapped out our plans on Trello adding cards for each aspect of the project allowing us to track our progress.
 
-
+<img src="/p3photos/1.png" width="100%">
 The next step I undertook was the create on the wireframes, the first was a rough drawing depicting how i imagined user to interact with the site, after which I went back to the team for final confirmation on the desired layout, from there I completed a more accurate wire frame showcasing features such as the light and dark mode that we wanted to incorporate into the application. 
 
 
